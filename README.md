@@ -92,15 +92,13 @@ When we look at our true positives , we do a good job catching these kinds of da
 
 **True Positive Images:**
 
-![image](https://github.com/user-attachments/assets/f5434de1-7630-4978-984c-bdf6fdd4ba95)
-
+<img width="1516" alt="Screenshot 2025-05-28 at 1 14 24 PM" src="https://github.com/user-attachments/assets/2e4d0582-e6cd-4c6b-aacd-506f196b43d3" />
 
 Where we miss the mark are shape defects, which in our analysis are less risky to the business.
 
 **False Negative Images:**
 
-![image](https://github.com/user-attachments/assets/45a69727-7574-46df-88b1-61fe04838518)
-
+<img width="1513" alt="Screenshot 2025-05-28 at 1 14 39 PM" src="https://github.com/user-attachments/assets/90998107-698f-4a6b-b64f-0caefe8f6f8f" />
 
 This is a promising start, with the autoencoder but we now move forward to building out a latent space for these images with a VAE.
 
