@@ -430,9 +430,9 @@ We see below what the reconstruction errors looks like for normal vs anomalous c
 
 ![image](https://github.com/user-attachments/assets/acc34772-7af4-4a0c-8046-72c6d42a3e39)
 
-* Confusion Matrix:
+* Confusion Matrix
 
-![image](https://github.com/user-attachments/assets/b11137f1-6e97-49c9-90af-4eb4db8b5e85)
+<img width="583" alt="Screenshot 2025-05-28 at 1 21 35 PM" src="https://github.com/user-attachments/assets/26e2c5f2-e1fa-48d3-b633-c706071d0d2e" />
 
 
 ## Final Model and Results
