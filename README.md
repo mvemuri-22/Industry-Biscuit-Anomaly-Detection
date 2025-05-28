@@ -155,14 +155,14 @@ decoder_output = Conv2D(3, (3, 3), activation='sigmoid', padding='same')(x)
     The total VAE loss is the sum of these two components.
 
 ##### Training Process: 
-As mentioned, VAE is trained exclusively on non-defective cookie images (`X_train_ok`). The model learns to encode these images into a latent space and then decode them back to their original form. During training, the reconstruction error is minimized, and the latent space is regularized. 
-The model is compiled with the Adam optimizer and the custom VAE loss function as mentioned in the previous part. We trained the model for `50` epochs with a `batch_size` of `32`.
+* As mentioned, VAE is trained exclusively on non-defective cookie images (`X_train_ok`). The model learns to encode these images into a latent space and then decode them back to their original form. During training, the reconstruction error is minimized, and the latent space is regularized. 
+* Optimal Parameters: The model is compiled with the Adam optimizer and trained the model for `50` epochs with a `batch_size` of `32`.
 
 #### VAE Results and Analysis
 
 ##### Reconstruction Visualization
 
-After training, the VAE's ability to reconstruct images was evaluated. The model was able to reconstruct non-defective cookie images . For defective images however, we see some flaws in the reconstruction as the model attempts to reconstruct them as non-defective cookies.
+After training, the VAE's ability to reconstruct images was evaluated. The model was able to reconstruct non-defective cookie images. For defective images however, we see some flaws in the reconstruction as the model attempts to reconstruct them as non-defective cookies.
 
 <img width="902" alt="Screenshot 2025-05-28 at 1 20 01 PM" src="https://github.com/user-attachments/assets/94fafb4d-eb1f-4d00-bb46-588132bfdbed" />
 
