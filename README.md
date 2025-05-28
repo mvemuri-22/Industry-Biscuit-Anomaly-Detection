@@ -221,7 +221,9 @@ $z = \mu + \sigma \cdot \epsilon \quad \text{where} \quad \epsilon \sim \mathcal
 * Decoder: A 4-layer transposed convolutional decoder reconstructs the image from the latent vector z. Batch normalization and ReLU activations are applied in intermediate layers.
 
 * Loss Function: Combines reconstruction loss (binary cross-entropy) and KL divergence:  
-$\mathcal{L} = \mathcal{L}_{\text{reconstruction}} + \beta \cdot \mathcal{L}_{\text{KL}}$
+\[
+\mathcal{L} = \mathcal{L}_{\text{reconstruction}} + \beta \cdot \mathcal{L}_{\text{KL}}
+\]
 
 
 #### Training Details
