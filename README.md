@@ -187,7 +187,7 @@ In addition to the simple binary defect detection, we decided to further explore
 
 Visualization on a 2D plot shows that Cluster 2 is very distinct, while Cluster 0 and Cluster 1 were less distinguishable.
 
-<img width="573" alt="Screenshot 2025-05-28 at 1 20 39 PM" src="https://github.com/user-attachments/assets/21486a43-7307-4475-a0e5-ad2f05e1ef12" />
+<img width="650" alt="Screenshot 2025-05-28 at 1 20 39 PM" src="https://github.com/user-attachments/assets/21486a43-7307-4475-a0e5-ad2f05e1ef12" />
 
 
 After further examination we see that Cluster 2 actually corresponds to cookies that have shape defects. In fact, we see that out of 48 cookies in Cluster 2, 44 are shape defects and the other 4 are color defects. This shows a promising result that we were able to identify the difference between “acceptable” defects vs unsellable defects.
