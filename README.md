@@ -219,6 +219,80 @@ $z = \mu + \sigma \cdot \epsilon \quad \text{where} \quad \epsilon \sim \mathcal
 
 * **Loss Function**: Combines reconstruction loss (binary cross-entropy) and KL divergence.
 
+```python
+class ViTVAE(nn.Module):
+
+    def __init__(self, img_size, nb_channels, latent_img_size, z_dim, rec_loss="xent", beta=1, delta=1):
+        super(ViTVAE, self).__init__()
+
+        self.img_size = img_size
+        self.nb_channels = nb_channels
+        self.latent_img_size = latent_img_size
+        self.z_dim = z_dim
+        self.beta = beta
+        self.rec_loss = rec_loss
+        self.delta = delta
+        self.nb_conv = 3
+        self.max_depth_conv = 384
+
+        # Load pretrained ViT
+        self.vit = ViTModel.from_pretrained('google/vit-base-patch16-224')
+
+        # Optional: freeze ViT if needed
+        # for param in self.vit.parameters():
+        #     param.requires_grad = False
+
+        self.out_en = nn.Sequential(
+            nn.Conv2d(3, 512, kernel_size=1, stride=1, padding=0),
+            nn.BatchNorm2d(512),
+            nn.LeakyReLU()
+        )
+
+        # Decoder setup
+        self.decoder_layers = []
+        for i in reversed(range(1, 5)):
+            depth_in = 3 * 2 ** (2 + i + 1)
+            depth_out = 3 * 2 ** (2 + i)
+            if i == 1:
+                depth_out = self.nb_channels
+                self.decoder_layers.append(
+                    nn.ConvTranspose2d(depth_in, depth_out, 4, 2, 1)
+                )
+            else:
+                self.decoder_layers.append(nn.Sequential(
+                    nn.ConvTranspose2d(depth_in, depth_out, 4, 2, 1),
+                    nn.BatchNorm2d(depth_out),
+                    nn.ReLU()
+                ))
+
+        self.conv_decoder = nn.Sequential(*self.decoder_layers)
+
+    def encoder(self, x):
+        x = self.vit(x)[0][:, 1:, :]  # skip [CLS] token
+        x = x.permute(0, 2, 1)        # (B, hidden_dim, patch_count)
+        x = x.reshape(x.shape[0], x.shape[1], 14, 14)
+        return x[:, :self.z_dim], x[:, self.z_dim:]
+
+    def reparameterize(self, mu, logvar):
+        if self.training:
+            std = torch.exp(0.5 * logvar)
+            eps = torch.randn_like(std)
+            return eps * std + mu
+        else:
+            return mu
+
+    def decoder(self, z):
+        x = self.conv_decoder(z)
+        x = torch.sigmoid(x)
+        return x
+
+    def forward(self, x):
+        mu, logvar = self.encoder(x)
+        z = self.reparameterize(mu, logvar)
+        self.mu = mu
+        self.logvar = logvar
+        return self.decoder(z), (mu, logvar)
+```
 
 #### Training Details
 
