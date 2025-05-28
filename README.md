@@ -163,7 +163,7 @@ Training Process: As mentioned, VAE is trained exclusively on non-defective cook
 
 After training, the VAE's ability to reconstruct images was evaluated. The model was able to reconstruct non-defective cookie images . For defective images however, we see some flaws in the reconstruction as the model attempts to reconstruct them as non-defective cookies.
 
-![image](https://github.com/user-attachments/assets/f618c325-e18b-4817-ab54-382ac341f628)
+<img width="902" alt="Screenshot 2025-05-28 at 1 20 01 PM" src="https://github.com/user-attachments/assets/94fafb4d-eb1f-4d00-bb46-588132bfdbed" />
 
 
 ##### Anomaly Detection Thresholding
