@@ -149,11 +149,15 @@ decoder_output = Conv2D(3, (3, 3), activation='sigmoid', padding='same')(x)
 ```
 
 
-* Loss Function: The VAE loss function combines two components:  
-  1. Reconstruction Loss: Measures how well the VAE reconstructs the input image. We use binary cross-entropy, which is suitable for images normalized to \[0,1\].  
-     * Lreconstruction​=−∑i​(xi​log(x^i​)+(1−xi​)log(1−x^i​))  
-  2. KL Divergence Loss: Regularizes the latent space by forcing the learned distribution to be close to a standard normal distribution. This ensures a continuous and well-structured latent space, preventing overfitting and encouraging meaningful latent representations.  
-     * LKL​=−0.5∑i​(1+log(σi2​)−μi2​−σi2​) The total VAE loss is the sum of these two components.
+* Loss Function: The VAE loss function combines two components
+
+    1.  Reconstruction Loss: Measures how well the VAE reconstructs the input image. We use binary cross-entropy, which is suitable for images normalized to $[0,1]$.
+        $$L_{\text{reconstruction}} = -\sum_{i} (x_i \log(\hat{x}_i) + (1-x_i) \log(1-\hat{x}_i))$$
+
+    2.  KL Divergence Loss: Regularizes the latent space by forcing the learned distribution to be close to a standard normal distribution. This ensures a continuous and well-structured latent space, preventing overfitting and encouraging meaningful latent representations.
+        $$L_{\text{KL}} = -0.5 \sum_{i} (1 + \log(\sigma_i^2) - \mu_i^2 - \sigma_i^2)$$
+
+    The total VAE loss is the sum of these two components.
 
 Training Process: As mentioned, VAE is trained exclusively on non-defective cookie images (`X_train_ok`). The model learns to encode these images into a latent space and then decode them back to their original form. During training, the reconstruction error is minimized, and the latent space is regularized. The model is compiled with the Adam optimizer and the custom VAE loss function as mentioned in the previous part. We trained the model for `50` epochs with a `batch_size` of `32`.
 
