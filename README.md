@@ -19,7 +19,7 @@ This project aims to develop a robust anomaly detection system for industrial bi
 
 ## Dataset
 
-We will be utilizing a specialized dataset comprising **1,225** images of Tarallini biscuits sourced from an industrial plant. Each image has a resolution of **256x256** pixels. The dataset categorizes biscuits into two main types: non-defective and defective. Within the defective biscuits: there are 3 ypes of defects: **"not complete," "strange object," and "color defect."** To ensure a comprehensive view for analysis, the data has each biscuit captured from four different angles. This rich dataset closely mimics real-world quality control scenarios, making it highly suitable for developing an effective defect detection model in an industrial setting.
+We will be utilizing a specialized dataset comprising **1,225** images of Tarallini biscuits sourced from an industrial plant. The data is augmented such that each sample rotated by 90° for three times, so the comprehensive augmented dataset contains 4900 captures in total. Each image has a resolution of **256x256** pixels. The dataset categorizes biscuits into two main types: non-defective and defective. Within the defective biscuits: there are 3 ypes of defects: **"not complete," "strange object," and "color defect."** To ensure a comprehensive view for analysis, the data has each biscuit captured from four different angles. This rich dataset closely mimics real-world quality control scenarios, making it highly suitable for developing an effective defect detection model in an industrial setting.
 
 Below are some example images from the training dataset for both non-defective and defective cookies:
 
