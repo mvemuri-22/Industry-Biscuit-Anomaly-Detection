@@ -304,6 +304,9 @@ class ViTVAE(nn.Module):
 * Optimization: Adam optimizer  
 * KL Divergence Weight (β): 1.0
 
+![image](https://github.com/user-attachments/assets/9fa1e7c8-ee02-422a-9f3b-b67820c81ebd)
+
+
 #### ViT-VAE Results and Analysis
 
 Despite the architectural sophistication and excellent reconstructions, the ViT-VAE showed poor test set classification performance. **One likely cause is that the pretrained ViT encoder was too good at reconstructing even defective images, including those with nails or unusual coloring**. This means that even anomalies were reconstructed well, leading to low reconstruction error and consequently poor anomaly discrimination.
