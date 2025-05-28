@@ -207,18 +207,17 @@ To push the boundaries of representation learning, we experimented with a Vision
 
 #### ViT-VAE Architecture
 
-* Encoder: We use the ViT-Base (google/vit-base-patch16-224) pretrained model from Hugging Face Transformers.   
+* **Encoder**: We use the ViT-Base (google/vit-base-patch16-224) pretrained model from Hugging Face Transformers.   
   * This is an encoder only ViT.  
   * The \[CLS\] token is excluded, and only the patch embeddings are used.   
   * These are reshaped into a 2D feature map and passed through a final convolutional layer to output mean and log-variance vectors for the latent space.
 
-* Latent Space: The VAE latent space follows the standard Gaussian reparameterization trick:  
+* **Latent Space**: The VAE latent space follows the standard Gaussian reparameterization trick:  
 $z = \mu + \sigma \cdot \epsilon \quad \text{where} \quad \epsilon \sim \mathcal{N}(0, I)$
 
-* Decoder: A 4-layer transposed convolutional decoder reconstructs the image from the latent vector z. Batch normalization and ReLU activations are applied in intermediate layers.
+* **Decoder**: A 4-layer transposed convolutional decoder reconstructs the image from the latent vector z. Batch normalization and ReLU activations are applied in intermediate layers.
 
-* Loss Function: Combines reconstruction loss (binary cross-entropy) and KL divergence:  
-L = L_reconstruction + β · L_{KL}
+* **Loss Function**: Combines reconstruction loss (binary cross-entropy) and KL divergence.
 
 
 #### Training Details
@@ -228,34 +227,31 @@ L = L_reconstruction + β · L_{KL}
 * Training Epochs: 100  
 * Batch Size: 32  
 * Optimization: Adam optimizer  
-* Reconstruction Loss: Binary cross-entropy  
 * KL Divergence Weight (β): 1.0
 
 #### ViT-VAE Results and Analysis
 
-Despite the architectural sophistication and excellent reconstructions, the ViT-VAE showed poor test set classification performance. One likely cause is that the pretrained ViT encoder was too good at reconstructing even defective images, including those with nails or unusual coloring. This means that even anomalies were reconstructed well, leading to low reconstruction error and consequently poor anomaly discrimination.
+Despite the architectural sophistication and excellent reconstructions, the ViT-VAE showed poor test set classification performance. **One likely cause is that the pretrained ViT encoder was too good at reconstructing even defective images, including those with nails or unusual coloring**. This means that even anomalies were reconstructed well, leading to low reconstruction error and consequently poor anomaly discrimination.
 
 Threshold Tuning (based on validation set reconstruction error):
 
 * Best Threshold: 70,077.57  
 * Validation Set Performance:  
-  * Precision: 0.5000  
+  * Precision: **0.5000**  
   * Recall: 1.0000  
   * F1 Score: 0.6667  
   * AUC: 0.5058
 
 Test Set Performance:
 
-* Precision: 0.4898  
+* Precision: **0.4898**  
 * Recall: 0.9600  
 * F1 Score: 0.6486  
 * AUC: 0.6091
 
-**These results indicate that the model is basically classifying everything as anomalies, showing weak classification power.**
-
 #### Latent Space Analysis
 
-The t-SNE visualization of the latent space reveals slightly distinct but overlapping clusters for defective and non-defective samples. Defective cookies tend to reside near the boundary of the normal cluster, which confirms that the latent space does learn some distinction. However, the boundaries are not sharp, possibly due to the ViT encoder’s generalization ability, causing defective features to be encoded similarly to normal ones.
+The t-SNE visualization of the latent space reveals slightly distinct but overlapping clusters for defective and non-defective samples. **Defective cookies tend to reside near the boundary of the normal cluster, which confirms that the latent space does learn some distinction**. However, the boundaries are not sharp, possibly due to the ViT encoder’s generalization ability, causing defective features to be encoded similarly to normal ones.
 
 ![image](https://github.com/user-attachments/assets/3162df46-95d9-4156-a033-448ae8421efa)
 
@@ -268,7 +264,7 @@ The t-SNE visualization of the latent space reveals slightly distinct but overla
 
 #### Conclusion
 
-While the ViT-VAE demonstrates strong reconstructive capabilities and potential for rich feature extraction, its overly expressive decoder limits its effectiveness in anomaly detection. This model contributes to our understanding of the tradeoff between representational quality and anomaly separability in latent spaces learned via deep generative models.
+While the ViT-VAE demonstrates strong reconstructive capabilities and potential for rich feature extraction, its overly smart encoder and expressive decoder limits its effectiveness in anomaly detection. This model contributes to our understanding of the tradeoff between representational quality and anomaly separability in latent spaces learned via deep generative models.
 
 ### **Generative Adversarial Network (GAN)**
 
