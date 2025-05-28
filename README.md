@@ -253,7 +253,8 @@ Test Set Performance:
 
 The t-SNE visualization of the latent space reveals slightly distinct but overlapping clusters for defective and non-defective samples. **Defective cookies tend to reside near the boundary of the normal cluster, which confirms that the latent space does learn some distinction**. However, the boundaries are not sharp, possibly due to the ViT encoder’s generalization ability, causing defective features to be encoded similarly to normal ones.
 
-![image](https://github.com/user-attachments/assets/3162df46-95d9-4156-a033-448ae8421efa)
+![image](https://github.com/user-attachments/assets/7f8c1145-42e0-4de5-a759-0b4c9eb58ba1)
+
 
 
  *Figure: ViT-VAE reconstructions on test set. Even severe anomalies are reconstructed clearly.*
