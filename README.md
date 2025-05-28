@@ -298,7 +298,7 @@ class ViTVAE(nn.Module):
 #### Training Details
 
 * Input Size: 224×224×3 (resized from 256×256)  
-* Latent Dimension (z\_dim): Tuned to balance complexity and regularization  
+* Latent Dimension (z\_dim): 384
 * Training Epochs: 100  
 * Batch Size: 32  
 * Optimization: Adam optimizer  
