@@ -341,12 +341,22 @@ The GAN is trained iteratively, alternating between updating the Discriminator a
 * Optimizers: Both the Generator and Discriminator are optimized using Adam with a learning rate of 0.0002 and betas (0.5, 0.999).
 * Epochs: The model is trained for 100 epochs.
 
+#### DCGAN Results and Anomaly Detection
+Anomaly detection using the DCGAN is performed by evaluating the reconstruction error. The generator, trained only on normal biscuits, struggles to perfectly reconstruct anomalous images.
+
+* Optimal Threshold: By leveraging Youden’s J statistic, an optimal threshold of 0.0468 was determined for anomaly detection.
+
+* Results on Test Set: Using the optimal threshold, the DCGAN achieved the following performance on the test set:
+   * Accuracy: 0.8933
+   * Precision (Anomaly): 0.9200
+   * Recall (Anomaly): 0.8583
+   * F1-Score (Anomaly): 0.8889
+
 We see below what the reconstruction errors looks like for normal vs anomalous cookies: 
 
 ![image](https://github.com/user-attachments/assets/acc34772-7af4-4a0c-8046-72c6d42a3e39)
 
-
-By leveraging Youden’s J statistic to choose the threshold, we get a threshold of .0468. Using this threshold, we get the following confusion matrix:
+* Confusion Matrix:
 
 ![image](https://github.com/user-attachments/assets/b11137f1-6e97-49c9-90af-4eb4db8b5e85)
 
