@@ -277,15 +277,19 @@ While the ViT-VAE demonstrates strong reconstructive capabilities and potential 
 
 We also trained a Deep Convolutional Generative Adversarial Network (DCGAN) to identify anomalous biscuits. Similar to other models we train it on normal biscuits and find which images have high reconstruction errors. We see below what the reconstruction errors looks like for normal vs anomalous cookies: 
 
-![][image12]
+![image](https://github.com/user-attachments/assets/acc34772-7af4-4a0c-8046-72c6d42a3e39)
+
 
 By leveraging Youden’s J statistic to choose the threshold, we get a threshold of .0468. Using this threshold, we get the following confusion matrix:
 
-![][image13]
+![image](https://github.com/user-attachments/assets/b11137f1-6e97-49c9-90af-4eb4db8b5e85)
+
 
 ## Final Model and Results
 
-(Placeholder for Final Model details) This section will be populated once all candidate models (VAE, GAN, ViT, Autoencoders) have been trained and their performances compared. The final model will be selected based on its effectiveness in accurately detecting anomalies and its suitability for industrial deployment.
+Given our results, our best model for identifying anomalies is the DCGAN. The overall accuracy of the model is the best of the group and it also does a great job in terms of recall of anomalies (85%). The GAN is able to give sharper, more realistic images which allows it to see some of the fine grain details. Models like VAE and autoencoder struggled to identify shape defects for example, whereas DCGAN was able to capture more of these without giving up precision. A DCGAN is also less likely to explain away any anomalies by reconstructing them well.
+
+From a business perspective we are striving to minimize false negatives because they represent a large risk to the companies success. When we look at some of the color defects or cookies with metal items in them, if served this could result in a lawsuit. On the positive, all models do a good job of capturing these major red flags. But models like autoencoder and VAE, may result in more false positives which means wasted cookies. DCGAN outperforms in terms of precision and recall meaning we are avoiding risk of serving bad cookies while also producing enough cookies for the business to be successful.
 
 ## Future Work
 
