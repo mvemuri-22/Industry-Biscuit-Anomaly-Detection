@@ -233,7 +233,7 @@ $z = \mu + \sigma \cdot \epsilon \quad \text{where} \quad \epsilon \sim \mathcal
 
 Despite the architectural sophistication and excellent reconstructions, the ViT-VAE showed poor test set classification performance. **One likely cause is that the pretrained ViT encoder was too good at reconstructing even defective images, including those with nails or unusual coloring**. This means that even anomalies were reconstructed well, leading to low reconstruction error and consequently poor anomaly discrimination.
 
-Threshold Tuning (based on validation set reconstruction error):
+1. Threshold Tuning (based on validation set reconstruction error):
 
 * Best Threshold: 70,077.57  
 * Validation Set Performance:  
@@ -242,14 +242,15 @@ Threshold Tuning (based on validation set reconstruction error):
   * F1 Score: 0.6667  
   * AUC: 0.5058
 
-Test Set Performance:
+2. Test Set Performance:
 
 * Precision: **0.4898**  
 * Recall: 0.9600  
 * F1 Score: 0.6486  
 * AUC: 0.6091
 
-Reconstruction Performance:
+3. Reconstruction Performance:
+
 ![image](https://github.com/user-attachments/assets/7f8c1145-42e0-4de5-a759-0b4c9eb58ba1)
 
  *Figure: ViT-VAE reconstructions on test set. Even severe anomalies are reconstructed clearly.*
