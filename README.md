@@ -196,7 +196,7 @@ Visualization on a 2D plot shows that Cluster 2 is very distinct, while Cluster 
 
 After further examination we see that Cluster 2 actually corresponds to cookies that have shape defects. In fact, we see that out of 48 cookies in Cluster 2, 44 are shape defects and the other 4 are color defects. This shows a promising result that we were able to identify the difference between “acceptable” defects vs unsellable defects.
 
-*Original Cookie Images in Cluster 2*
+*Original Cookie Images in Cluster 2 (Shape Defects -- "Acceptable")*
 
 ![image](https://github.com/user-attachments/assets/6a9cc0c7-1d4d-4043-bfd8-229efe1efe78)
 
