@@ -25,11 +25,9 @@ The dataset was obtained by running the provided code/notebook from the Kaggle l
 
 Below are some example images from the training dataset for both non-defective and defective cookies:
 
-![image](https://github.com/user-attachments/assets/7a4a0bd1-0daf-4b7a-82b1-9e9ea1e0dc78)
+<img width="1140" alt="Screenshot 2025-05-28 at 1 11 44 PM" src="https://github.com/user-attachments/assets/2b4ffba5-31d6-443b-801a-8692a58fa5d4" />
 
-
-![image](https://github.com/user-attachments/assets/651b780c-9609-4917-959d-86345b3dd50c)
-
+<img width="1140" alt="Screenshot 2025-05-28 at 1 12 17 PM" src="https://github.com/user-attachments/assets/2b4c7578-db67-4155-8387-33e42b1de8b6" />
 
 For more details, the dataset can be accessed at: [Industry Biscuit Cookie Dataset](https://www.kaggle.com/datasets/imonbilk/industry-biscuit-cookie-dataset/data)
 
