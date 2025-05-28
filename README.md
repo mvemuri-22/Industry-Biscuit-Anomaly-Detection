@@ -251,7 +251,7 @@ Test Set Performance:
 * F1 Score: 0.6486  
 * AUC: 0.6091
 
-*These results indicate that the model is basically classifying everything as anomalies, showing weak classification power.*
+**These results indicate that the model is basically classifying everything as anomalies, showing weak classification power.**
 
 #### Latent Space Analysis
 
