@@ -21,8 +21,6 @@ This project aims to develop a robust anomaly detection system for industrial bi
 
 We will be utilizing a specialized dataset comprising 1,225 images of Tarallini biscuits sourced from an industrial plant. Each image has a resolution of 256x256 pixels. The dataset categorizes biscuits into four types: "no defect," "not complete," "strange object," and "color defect." To ensure a comprehensive view for analysis, each biscuit is captured from four different angles. This rich dataset closely mimics real-world quality control scenarios, making it highly suitable for developing an effective defect detection model in an industrial setting.
 
-The dataset was obtained by running the provided code/notebook from the Kaggle link. It is organized into `train`, `test`, and `val` (validation) folders. Within each of these folders, there are subfolders named `ok` (for non-defective biscuits) and `nok` (for defective biscuits), allowing for clear separation of normal and anomalous samples.
-
 Below are some example images from the training dataset for both non-defective and defective cookies:
 
 <img width="1140" alt="Screenshot 2025-05-28 at 1 11 44 PM" src="https://github.com/user-attachments/assets/2b4ffba5-31d6-443b-801a-8692a58fa5d4" />
@@ -35,9 +33,10 @@ For more details, the dataset can be accessed at: [Industry Biscuit Cookie Datas
 
 The data preparation phase involves several crucial steps to ensure the images are in a suitable format for model training.
 
-1. Loading Images: Images are loaded from the specified directories (`train/ok` and `train/nok`). The `preprocess_image` function handles loading, resizing, and normalization.  
-2. Resizing and Normalization: All images are resized to a uniform dimension of `256x256` pixels and normalized to a pixel range of by dividing by 255\. This standardization is critical for consistent model input.  
-3. **Data Splitting**: To prevent data leakage, especially since each cookie is captured from 4 different angles (resulting in 4 consecutive images of the same cookie rotated), the splitting process is performed by grouping images in sets of 4 before distributing the training set images into training and validation sets. The test set is kept as is from the data extraction output given by the data source. All datasets (`X_train`, `X_val`, `X_test`) are converted to `float32` and normalized to the range.
+1. The dataset was obtained by running the provided code/notebook from the Kaggle link. It is organized into `train`, `test`, and `val` (validation) folders. Within each of these folders, there are subfolders named `ok` (for non-defective biscuits) and `nok` (for defective biscuits), allowing for clear separation of normal and anomalous samples.
+2. Loading Images: Images are loaded from the specified directories (`train/ok` and `train/nok`). We wrote `preprocess_image` function handles loading, resizing, and normalization.  
+3. Resizing and Normalization: All images are resized to a uniform dimension of `256x256` pixels and normalized to a pixel range of by dividing by 255\. This standardization is critical for consistent model input.  
+4. **Data Splitting**: To prevent data leakage, especially since each cookie is captured from 4 different angles (resulting in 4 consecutive images of the same cookie rotated), the splitting process is performed by grouping images in sets of 4 before distributing the training set images into training and validation sets. The test set is kept as is from the data extraction output given by the data source. All datasets (`X_train`, `X_val`, `X_test`) are converted to `float32` and normalized to the range.
 
 ## **Model Training**
 
