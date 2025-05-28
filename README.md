@@ -2,19 +2,16 @@
 
 ## Table of Contents
 
-1. Introduction  
-2. Dataset  
-3. Data Preparation  
-4. Model Training  
-   * Autoencoder  
-   * Variational Autoencoder (VAE)  
-     * VAE Model Details  
-     * VAE Results and Analysis  
-   * Generative Adversarial Network (GAN)  
-   * Vision Transformer (ViT)  
-5. Final Model  
-6. Evaluation Metrics and Performance Assessment  
-7. Future Work
+1. [Introduction](#introduction)
+2. [Dataset](#dataset)
+3. [Data Preparation](#data-preparation)
+4. [Model Training](#model-training)
+    * [Autoencoder](#autoencoder)
+    * [Variational Autoencoder (VAE)](#variational-autoencoder-vae)
+    * [Generative Adversarial Network (GAN)](#generative-adversarial-network-gan)
+    * [Vision Transformer (ViT)](#vision-transformer-vit-vae)
+5. [Final Model](#final-model-and-results)
+6. [Future Work](#future-work)
 
 ## Introduction
 
