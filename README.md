@@ -251,7 +251,7 @@ Test Set Performance:
 * F1 Score: 0.6486  
 * AUC: 0.6091
 
-These results indicate that while the model captures anomalies to some extent (as shown by high recall), its classification capability is unbalanced, leading to many false positives.
+*These results indicate that the model is basically classifying everything as anomalies, showing weak classification power.*
 
 #### Latent Space Analysis
 
